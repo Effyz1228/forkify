@@ -1,0 +1,27 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "recipe app",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Effyz1228/forkify.git"
+  },
+  "author": "Effy Zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Effyz1228/forkify/issues"
+  },
+  "homepage": "https://github.com/Effyz1228/forkify#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.2",
+    "parcel": "^2.6.2"
+  },
+  "dependencies": {
+    "core-js": "^3.23.3",
+    "regenerator-runtime": "^0.13.9"
+  }
+}
