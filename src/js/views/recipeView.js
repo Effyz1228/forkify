@@ -2,7 +2,6 @@
 import icons from 'url:../../img/icons.svg';
 import fracty from 'fracty';
 
-console.log(fracty(5.555));
 class RecipeView {
   #parentElement = document.querySelector('.recipe');
   #data;
@@ -31,6 +30,11 @@ class RecipeView {
     this.#parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
+  addHandleRender(handler) {
+    ['hashchange', 'load'].forEach(evt =>
+      window.addEventListener(evt, handler)
+    );
+  }
   #generateMarkup() {
     return `
       <figure class="recipe__fig">
