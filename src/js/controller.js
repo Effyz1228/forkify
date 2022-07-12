@@ -8,9 +8,9 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { async } from 'regenerator-runtime';
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
 
 const controlRecipes = async function () {
   try {
@@ -40,8 +40,8 @@ const controlSearchResults = async function () {
     //render search query
     await model.loadSearchResults(query);
     //show results
-    resultsView.render(model.state.search.results);
-    console.log(model.state.search.results);
+    resultsView.render(model.getSearchResultsPage(2));
+    console.log(model.getSearchResultsPage());
   } catch (err) {
     console.log(err);
   }
