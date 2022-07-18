@@ -3,7 +3,7 @@ import recipeView from './views/recipeView.js';
 import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
-import bookmarkView from './views/bookmarkView.js';
+import bookmarkView from './views/BookmarkView.js';
 
 //polyfill
 import 'core-js/stable';
@@ -69,12 +69,17 @@ const controlServings = function (newServings) {
 const controlAddBookmark = function () {
   if (!model.state.recipe.bookMarked) model.addBookMark(model.state.recipe);
   else model.deleteBookMark(model.state.recipe.id);
-  console.log(model.state.recipe);
+
   recipeView.update(model.state.recipe);
   bookmarkView.render(model.state.bookMarks);
 };
 
+const controlBookmarks = function () {
+  bookmarkView.render(model.state.bookMarks);
+};
+
 const init = function () {
+  bookmarkView.addHandlerRender(controlBookmarks);
   recipeView.addHandleRender(controlRecipes);
   recipeView.addHandleUpdateServings(controlServings);
   recipeView.addHandleBookmark(controlAddBookmark);
