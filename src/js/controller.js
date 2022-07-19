@@ -4,6 +4,7 @@ import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarkView from './views/BookmarkView.js';
+import addRecipeView from './views/addRecipeView.js';
 
 //polyfill
 import 'core-js/stable';
@@ -78,6 +79,10 @@ const controlBookmarks = function () {
   bookmarkView.render(model.state.bookMarks);
 };
 
+const controlAddRecipe = function (newRecipe) {
+  console.log(newRecipe);
+};
+
 const init = function () {
   bookmarkView.addHandlerRender(controlBookmarks);
   recipeView.addHandleRender(controlRecipes);
@@ -85,6 +90,7 @@ const init = function () {
   recipeView.addHandleBookmark(controlAddBookmark);
   searchView.addHandleSearch(controlSearchResults);
   paginationView.addHandleClick(controlPagination);
+  addRecipeView.addHandleUpload(controlAddRecipe);
 };
 
 init();
