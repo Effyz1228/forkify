@@ -4,7 +4,8 @@ import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarkView from './views/BookmarkView.js';
-import addRecipeView from './views/addRecipeView.js';
+import addRecipeView from './views/AddRecipeView.js';
+import { MODAL_CLOSE_SEC } from './config.js';
 
 //polyfill
 import 'core-js/stable';
@@ -79,8 +80,22 @@ const controlBookmarks = function () {
   bookmarkView.render(model.state.bookMarks);
 };
 
-const controlAddRecipe = function (newRecipe) {
-  console.log(newRecipe);
+const controlAddRecipe = async function (newRecipe) {
+  try {
+    await model.uploadRecipe(newRecipe);
+
+    console.log(model.state.recipe);
+
+    recipeView.render(model.state.recipe);
+    addRecipeView.renderMessage();
+
+    setTimeout(function () {
+      addRecipeView.toggleClass();
+    }, MODAL_CLOSE_SEC * 1000);
+  } catch (err) {
+    addRecipeView.renderError(`${err} 😱😱😱`);
+    console.log(err, '😱😱😱');
+  }
 };
 
 const init = function () {
