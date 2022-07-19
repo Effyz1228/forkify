@@ -82,13 +82,26 @@ const controlBookmarks = function () {
 
 const controlAddRecipe = async function (newRecipe) {
   try {
+    //show loading spinner
+    addRecipeView.renderSpinner();
+
+    //upload the new recipe data to API
     await model.uploadRecipe(newRecipe);
 
     console.log(model.state.recipe);
-
+    //render the new recipe
     recipeView.render(model.state.recipe);
+
+    //success message
     addRecipeView.renderMessage();
 
+    //render bookmark view
+    bookmarkView.render(model.state.bookMarks);
+
+    //change ID in URL using history API
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
+
+    //close form window
     setTimeout(function () {
       addRecipeView.toggleClass();
     }, MODAL_CLOSE_SEC * 1000);
