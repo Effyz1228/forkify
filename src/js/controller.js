@@ -3,8 +3,8 @@ import recipeView from './views/recipeView.js';
 import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
-import bookmarkView from './views/BookmarkView.js';
-import addRecipeView from './views/AddRecipeView.js';
+import bookmarkView from './views/bookmarkView.js';
+import addRecipeView from './views/addRecipeView.js';
 import { MODAL_CLOSE_SEC } from './config.js';
 
 //polyfill
