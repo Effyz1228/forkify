@@ -32,4 +32,3 @@ class previewView extends View {
 }
 
 export default new previewView();
-<use href="https://effyforkify.netlify.app/icons.c14567a0.svg.svg#icon-user"></use>;
