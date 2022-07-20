@@ -22,7 +22,7 @@ class previewView extends View {
                   this._data.key ? '' : 'hidden'
                 }">
                   <svg>
-                    <use href="${icons}.svg#icon-user"></use>
+                    <use href="${icons}#icon-user"></use>
                   </svg>
                 </div>
               </div>
@@ -32,3 +32,4 @@ class previewView extends View {
 }
 
 export default new previewView();
+<use href="https://effyforkify.netlify.app/icons.c14567a0.svg.svg#icon-user"></use>;
